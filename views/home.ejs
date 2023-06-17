@@ -1,2 +1,21 @@
 <h1>Issue Tracker Application!!!! <%= title %>
 </h1>
+
+<!-- Display all projects -->
+<h2>All Projects:</h2>
+<ul>
+    <% projects.forEach(function(project) { %>
+        <li>
+            <strong>
+                <%= project.name %>
+            </strong> by <%= project.author %>
+                <p>
+                    <%= project.description %>
+                </p>
+                <a href="/project/<%= project._id %>">View Project</a> 
+        </li>
+        <% }); %>
+</ul>
+
+<!-- Create Project button -->
+<a href="/project/create">Create Project</a>
