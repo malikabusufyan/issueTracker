@@ -17,9 +17,18 @@
             <strong>
                 <%= issue.title %>
             </strong>
+            <strong>
+                <%= issue.author %>
+            </strong>
             <p>
                 <%= issue.description %>
             </p>
         </li>
         <% }); %>
 </ul>
+<form action="/projects/<%= project._id %>/delete" method="POST" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<a href="/projects/<%= project._id %>/issues/new" class="btn btn-primary">Create Issue</a>
+<a href="/" class="btn btn-primary">Back</a>

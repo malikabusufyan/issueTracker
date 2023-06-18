@@ -47,3 +47,26 @@ module.exports.viewProjects = async (req, res) => {
     return res.status(500).send("Internal Server Error");
   }
 };
+// Controller to delete a project and its associated issues
+module.exports.deleteProject = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Find and delete the project by its ID
+    const project = await Project.findByIdAndDelete(id);
+
+    if (!project) {
+      // If project is not found, handle the error
+      return res.status(404).send("Project not found");
+    }
+
+    // Delete all issues associated with the project
+    await Issue.deleteMany({ _id: { $in: project.issues } });
+
+    // Redirect to the home page
+    return res.redirect("/");
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send("Internal Server Error");
+  }
+};
