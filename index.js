@@ -2,12 +2,15 @@ const express = require("express");
 const app = express();
 const port = 8000;
 const db = require("./config/mongoose");
+require("dotenv").config();
 
 //Use of express Layout
 const expressLayouts = require("express-ejs-layouts");
 app.use(expressLayouts);
+
 //use of static Files
 app.use(express.static("./assets"));
+
 //Extract of CSS links and Scripts Tag and put them at the head and bottom of the file
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
