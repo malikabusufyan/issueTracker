@@ -10,7 +10,7 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   animation: fade-in 1s ease-in-out;
-  max-width: 600px;
+  max-width: 750px;
 }
 
 @keyframes fade-in {
@@ -44,7 +44,7 @@
   border-radius: 50px;
   margin: 7px;
   padding: 10px;
-  width: 500px;
+  width: 700px;
   max-height: 100%;
   overflow-x: auto;
   overflow-y: hidden;

@@ -14,28 +14,36 @@
     </p>
 
     <h3 class="section-heading">Issues:</h3>
-    <ul class="issue-list">
-        <% project.issues.forEach(function(issue) { %>
-            <li class="issue-item">
-                <strong class="issue-title">
-                    <%= issue.title %>
-                </strong>
-                <br>
-                <strong class="issue-author">
-                    <%= issue.author %>
-                </strong>
-                <p class="issue-description">
-                    <%= issue.description %>
-                </p>
-            </li>
-            <% }); %>
-    </ul>
 
-    <div class="button-group">
-        <form action="/projects/<%= project._id %>/delete" method="POST" class="delete-form">
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-        <a href="/projects/<%= project._id %>/issues/new" class="btn btn-primary">Create Issue</a>
-        <a href="/" class="btn btn-primary">Back</a>
-    </div>
+    <% if (project.issues.length===0) { %>
+        <h4>No Issues Found</h4>
+        <% } else { %>
+            <ul class="issue-list">
+                <% project.issues.forEach(function(issue) { %>
+                    <li class="issue-item">
+                        <strong class="issue-title">
+                            Title: <%= issue.title %>
+                        </strong>
+                        <br>
+                        <strong class="issue-author">
+                            By: <%= issue.author %>
+                        </strong>
+                        <p class="issue-description">
+                            Description: <%= issue.description %>
+                        </p>
+                        <p class="issue-description">
+                            Labels: <%= issue.labels %>
+                        </p>
+                    </li>
+                    <% }); %>
+            </ul>
+            <% } %>
+
+                <div class="button-group">
+                    <form action="/projects/<%= project._id %>/delete" method="POST" class="delete-form">
+                        <button type="submit" class="btn btn-danger">Delete Project</button>
+                    </form>
+                    <a href="/projects/<%= project._id %>/issues/new" class="btn btn-primary">Create Issue</a>
+                    <a href="/" class="btn btn-primary">Back</a>
+                </div>
 </div>
