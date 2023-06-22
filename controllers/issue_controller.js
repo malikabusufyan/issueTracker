@@ -27,8 +27,8 @@ module.exports.createIssue = async (req, res) => {
       { new: true }
     );
 
+    // If project is not found, handle the error
     if (!project) {
-      // If project is not found, handle the error
       return res.status(404).send("Project not found");
     }
 

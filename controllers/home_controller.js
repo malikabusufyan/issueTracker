@@ -1,5 +1,6 @@
 const Project = require("../models/Project");
 
+//Controller to go the Home
 module.exports.home = async (req, res) => {
   try {
     // Fetch all projects

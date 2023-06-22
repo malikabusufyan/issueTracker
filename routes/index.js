@@ -9,9 +9,17 @@ const issueController = require("../controllers/issue_controller");
 
 // Accessing the Routes
 router.get("/", homeController.home);
+
+// Route to handle project Form rendering
 router.get("/project/create", projectController.projectForm);
+
+// Route to handle project creation
 router.post("/project/create", projectController.createProjects);
+
+// Route to handle view project
 router.get("/project/:id", projectController.viewProjects);
+
+// Route to Filter the issues and search
 router.get("/projects/:id/filter", projectController.filterProjects);
 
 // Route to handle project deletion

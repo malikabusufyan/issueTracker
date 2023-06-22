@@ -28,7 +28,7 @@ module.exports.createProjects = async (req, res) => {
   }
 };
 
-// To view project
+// Controller To view project
 module.exports.viewProjects = async (req, res) => {
   try {
     const { id } = req.params;
@@ -81,6 +81,7 @@ module.exports.deleteProject = async (req, res) => {
     return res.status(500).send("Internal Server Error");
   }
 };
+
 // Controller to handle project filter and search
 module.exports.filterProjects = async (req, res) => {
   try {
