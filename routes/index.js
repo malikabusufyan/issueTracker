@@ -12,6 +12,7 @@ router.get("/", homeController.home);
 router.get("/project/create", projectController.projectForm);
 router.post("/project/create", projectController.createProjects);
 router.get("/project/:id", projectController.viewProjects);
+router.get("/projects/:id/filter", projectController.filterProjects);
 
 // Route to handle project deletion
 router.post("/projects/:id/delete", projectController.deleteProject);
